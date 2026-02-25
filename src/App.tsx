@@ -79,7 +79,7 @@ function App() {
   const setPlayerName = (index: number, name: string) => {
     setPlayerNames((prev) => {
       const next = prev.slice()
-      next[index] = name || DEFAULT_NAMES[index]
+      next[index] = name
       return next
     })
   }
@@ -157,7 +157,7 @@ function App() {
             {rankings.map(({ playerIndex, total, label }) => (
               <li key={playerIndex} className={`rank-item rank-${label.toLowerCase()}`}>
                 <span className="rank-label">{label}</span>
-                <span className="rank-name">{playerNames[playerIndex]}</span>
+                <span className="rank-name">{playerNames[playerIndex]?.trim() || DEFAULT_NAMES[playerIndex]}</span>
                 <span className="rank-total">{total}</span>
               </li>
             ))}
