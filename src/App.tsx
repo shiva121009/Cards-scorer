@@ -57,9 +57,6 @@ function App() {
     }))
   }, [totals])
 
-  const isRoundComplete = (round: number) =>
-    scores[round].every((cell) => cell !== '')
-
   const currentRoundIndex = useMemo(() => {
     const idx = scores.findIndex((row) => row.some((cell) => cell === ''))
     return idx === -1 ? -1 : idx
